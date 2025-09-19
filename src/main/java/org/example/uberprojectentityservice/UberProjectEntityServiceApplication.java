@@ -10,6 +10,8 @@ public class UberProjectEntityServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(UberProjectEntityServiceApplication.class, args);
+
     }
+
 
 }
