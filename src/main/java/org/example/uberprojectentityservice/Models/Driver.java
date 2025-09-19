@@ -47,6 +47,8 @@ private ExactLocation home;
 
 private String activeCity;
 
+private boolean isAvailable;
+
 
 @DecimalMin(value="0.01" , message = "Rating must be  greater than or equal to 0.00")
 @DecimalMax(value = "5.00" , message = "Rating must be less than or eqaul to 5.00")

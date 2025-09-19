@@ -15,6 +15,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(indexes = {
+        @Index(columnList = "driver_id")
+})
 public class Booking extends BaseModel {
 
 
@@ -36,4 +39,11 @@ public class Booking extends BaseModel {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger;
+
+    @OneToOne
+    private ExactLocation startLocation;
+
+    @OneToOne
+    private ExactLocation endLocation;
+
 }

@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -33,6 +36,23 @@ import java.util.List;
 
         @OneToMany(mappedBy = "passenger" )
         private List<Booking> bookings = new ArrayList<>();
+
+        @OneToOne
+        private  Booking activeBooking;
+
+
+        @DecimalMin(value="0.01" , message = "Rating must be  greater than or equal to 0.00")
+        @DecimalMax(value = "5.00" , message = "Rating must be less than or eqaul to 5.00")
+        private double rating;
+
+        @OneToOne
+        private ExactLocation lastKnownlocation;
+
+
+        @OneToOne
+        private ExactLocation home;
+
+
     }
 
 
